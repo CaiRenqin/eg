@@ -22,7 +22,7 @@ spring.jpa:
 ## Server
 server:
   servlet:
-    context-path: /eg
+    context-path: /hdeg_war/hdeg
     session:
       cookie:
         http-only: true
@@ -33,7 +33,7 @@ solid.login.token-base: false
 
 
 #server.port: ${SERVER_PORT:8080}
-server.port: 8081
+server.port: 8080
 
 ## Mvc
 spring.mvc.view:

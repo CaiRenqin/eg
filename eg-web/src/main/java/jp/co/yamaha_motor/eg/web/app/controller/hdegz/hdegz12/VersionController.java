@@ -18,11 +18,12 @@ import org.springframework.http.MediaType;
 
 @Tag(name = "VersionController", description = "バージョン情報検索")
 @RestController
-@RequestMapping("/HDEGZ12-P001")
+@RequestMapping("/hdegz12")
 @RequiredArgsConstructor
 public class VersionController implements RestProcessAware {
 
     private final VersionFacade versionFacade;
+
     @Operation(summary = "バージョン情報検索", description = "バージョン情報を取得する(HDEGZ12-P001)")
     @PostMapping(value = "/HDEGZ12UpdateSheetGetVersionList", produces = MediaType.APPLICATION_XML_VALUE)
     public VersionListResponseDTO getVersionList(HttpServletResponse response) {

@@ -2,7 +2,6 @@ package jp.co.yamaha_motor.eg.common.entity;
 
 import java.io.Serial;
 import java.io.Serializable;
-import java.time.LocalDateTime;
 
 import jakarta.persistence.Id;
 import jakarta.persistence.Column;
@@ -17,7 +16,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @EqualsAndHashCode(onlyExplicitlyIncluded = true, callSuper = false)
-public class NumberingEntiy extends BaseEntity implements Serializable {
+public class NumberingEntity extends BaseEntity implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
 
