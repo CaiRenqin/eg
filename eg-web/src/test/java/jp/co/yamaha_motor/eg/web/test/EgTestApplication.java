@@ -30,7 +30,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @Import({ TestSecurityConfiguration.class, PJRedisConfiguration.class })
 @Profile("development-test")
 // @ComponentScan(basePackages = "jp.co.yamaha_motor.eg.web")
-// @EntityScan(basePackages = "jp.co.yamaha_motor.eg.domain.common")
+@EntityScan(basePackages = "jp.co.yamaha_motor.eg.common.entity")
 // @EnableJpaRepositories(basePackages = "jp.co.yamaha_motor.eg.common",
 // repositoryFactoryBeanClass = JpaExtensionRepositoryFactoryBean.class)
 @EnableAutoConfiguration(exclude = { WebSocketConfiguration.class })

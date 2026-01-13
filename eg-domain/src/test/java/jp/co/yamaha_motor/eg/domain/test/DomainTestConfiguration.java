@@ -22,12 +22,12 @@ import com.ymsl.solid.jpa.repository.JpaExtensionRepositoryFactoryBean;
  * @see BaseDomainTest
  */
 @SpringBootConfiguration
-@ComponentScan(basePackages = { "jp.co.yamaha_motor.eg.domain" })
-@EntityScan("jp.co.yamaha_motor.eg.domain.entity")
+@ComponentScan(basePackages = { "jp.co.yamaha_motor.eg.hdeg" })
+@EntityScan("jp.co.yamaha_motor.eg.common.entity")
 // @EnableJpaRepositories(basePackages =
-// {"jp.co.yamaha_motor.eg.domain.repository"}, repositoryFactoryBeanClass =
+// {"jp.co.yamaha_motor.eg.hdeg"}, repositoryFactoryBeanClass =
 // JpaExtensionRepositoryFactoryBean.class)
 @ImportAutoConfiguration({ DataSourceAutoConfiguration.class, HibernateJpaAutoConfiguration.class,
-        ExternalSqlConfiguration.class })
+                ExternalSqlConfiguration.class })
 public class DomainTestConfiguration {
 }
