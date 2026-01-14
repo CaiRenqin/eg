@@ -28,8 +28,6 @@ public class HDEGZ13UpdateSheetNumberingController implements RestProcessAware {
     public HDEGZ13UpdateSheetNumberingRespondDTO updateSheetNumbering(
             @ModelAttribute HDEGZ13UpdateSheetNumberingRequestDTO request,
             HttpServletResponse response) {
-        String tableName = request.getScreenModel().getTableName();
-        String numberingId = myFacade.updateSheetNumbering(tableName);
-        return new HDEGZ13UpdateSheetNumberingRespondDTO(numberingId);
+        return myFacade.updateSheetNumbering(request);
     }
 }

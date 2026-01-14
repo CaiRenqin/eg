@@ -8,7 +8,7 @@ import jp.co.yamaha_motor.eg.common.entity.VersionEntity;
 import jp.co.yamaha_motor.eg.common.entity.VersionId;
 
 @Repository
-public interface VersionRepository extends JpaRepository<VersionEntity, VersionId> {
+public interface HDEGZ12UpdateSheetGetVersionListRepository extends JpaRepository<VersionEntity, VersionId> {
 
     @Query("SELECT v FROM VersionEntity v ORDER BY v.lastUpdated DESC LIMIT 1")
     VersionEntity findFirstByOrderByLastUpdatedDesc();

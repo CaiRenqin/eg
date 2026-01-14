@@ -5,14 +5,11 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.servlet.http.HttpServletResponse;
 import jp.co.yamaha_motor.eg.hdeg.hdegz12.dto.VersionListResponseDTO;
-import jp.co.yamaha_motor.eg.hdeg.hdegz12.dto.VersionResponseDTO;
-import jp.co.yamaha_motor.eg.hdeg.hdegz12.facade.VersionFacade;
+import jp.co.yamaha_motor.eg.hdeg.hdegz12.facade.HDEGZ12UpdateSheetGetVersionListFacade;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.List;
 
 import org.springframework.http.MediaType;
 
@@ -20,16 +17,14 @@ import org.springframework.http.MediaType;
 @RestController
 @RequestMapping("/hdegz12")
 @RequiredArgsConstructor
-public class VersionController implements RestProcessAware {
+public class HDEGZ12UpdateSheetGetVersionListController implements RestProcessAware {
 
-    private final VersionFacade myFacade;
+    private final HDEGZ12UpdateSheetGetVersionListFacade myFacade;
 
     @Operation(summary = "バージョン情報検索", description = "バージョン情報を取得する(HDEGZ12-P001)")
     @PostMapping(value = "/HDEGZ12UpdateSheetGetVersionList", produces = MediaType.APPLICATION_XML_VALUE)
     public VersionListResponseDTO getVersionList(HttpServletResponse response) {
-        response.setContentType(MediaType.APPLICATION_XML_VALUE);
-        List<VersionResponseDTO> versionList = myFacade.getLatestVersion();
-        return new VersionListResponseDTO(versionList);
+        return myFacade.getLatestVersion();
     }
 
     @PostMapping("/test1")
