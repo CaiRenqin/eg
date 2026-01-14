@@ -6,7 +6,7 @@ import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlValue;
 
 @Data
-public class VersionResponseDTO {
+public class HDEGZ12ResultDTO {
     private String majorVer;
     private String minorVer;
     private String releaseVer;
