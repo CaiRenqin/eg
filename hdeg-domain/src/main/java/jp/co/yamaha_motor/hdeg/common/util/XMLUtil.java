@@ -4,7 +4,7 @@ import jakarta.xml.bind.JAXBContext;
 import jakarta.xml.bind.Marshaller;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlRootElement;
-import jp.co.yamaha_motor.hdeg.constants.CommonConstants;
+import jp.co.yamaha_motor.hdeg.common.constants.CommonConstants;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import lombok.experimental.UtilityClass;

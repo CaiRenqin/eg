@@ -1,4 +1,4 @@
-package jp.co.yamaha_motor.hdeg.constants;
+package jp.co.yamaha_motor.hdeg.common.constants;
 
 import lombok.experimental.UtilityClass;
 
