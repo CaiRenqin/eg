@@ -1,13 +1,14 @@
 package jp.co.yamaha_motor.hdeg.hdeg.hdegz13.service;
 
-import java.util.HashMap;
-
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import jp.co.yamaha_motor.hdeg.common.entity.NumberingEntity;
 import jp.co.yamaha_motor.hdeg.hdeg.hdegz13.repository.HDEGZ13UpdateSheetNumberingRepository;
+
 import java.util.Map;
-import org.springframework.transaction.annotation.Transactional;
+import java.util.HashMap;
+
 import lombok.RequiredArgsConstructor;
 
 @Service
@@ -46,10 +47,10 @@ public class HDEGZ13UpdateSheetNumberingService {
     @Transactional
     public String updateNumberingBySave(String tableName) {
         NumberingEntity numbering = hdegz13Repository.findByTableName(tableName);
+        String fullNum = fillZero(numbering.getNum(), TABLE_NAME_MAP.get(tableName));
+
         numbering.setNum(numbering.getNum() + 1);
         hdegz13Repository.save(numbering);
-
-        String fullNum = fillZero(numbering.getNum(), TABLE_NAME_MAP.get(tableName));
 
         return numbering.getPrefix() + fullNum;
     }
