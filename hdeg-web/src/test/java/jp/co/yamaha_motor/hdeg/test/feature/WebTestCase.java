@@ -1,4 +1,4 @@
-package jp.co.yamaha_motor.hdeg.web.test.controller;
+package jp.co.yamaha_motor.hdeg.test.feature;
 
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -12,8 +12,8 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import jp.co.yamaha_motor.hdeg.web.test.BaseWebTest;
-import jp.co.yamaha_motor.hdeg.web.test.HdegTestApplication;
+import jp.co.yamaha_motor.hdeg.test.BaseWebTest;
+import jp.co.yamaha_motor.hdeg.test.HdegTestApplication;
 
 /**
  * Sample test for web module.

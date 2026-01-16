@@ -4,6 +4,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import java.util.Optional;
+
 import jp.co.yamaha_motor.hdeg.common.entity.VersionEntity;
 import jp.co.yamaha_motor.hdeg.common.entity.VersionId;
 
@@ -16,5 +18,5 @@ public interface VersionRepository extends JpaRepository<VersionEntity, VersionI
      * @return 最新のVersionEntity
      */
     @Query("SELECT v FROM VersionEntity v ORDER BY v.lastUpdated DESC LIMIT 1")
-    VersionEntity findFirstByOrderByLastUpdatedDesc();
+    Optional<VersionEntity> getVersionInfo();
 }

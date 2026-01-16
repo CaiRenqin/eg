@@ -1,4 +1,4 @@
-package jp.co.yamaha_motor.hdeg.web.test;
+package jp.co.yamaha_motor.hdeg.test;
 
 import jp.co.yamaha_motor.hdeg.HdegApplication;
 import jp.co.yamaha_motor.hdeg.hdeg.PJRedisConfiguration;
@@ -29,7 +29,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @SpringBootApplication
 @Import({ TestSecurityConfiguration.class, PJRedisConfiguration.class })
 @Profile("development-test")
-// @ComponentScan(basePackages = "jp.co.yamaha_motor.hdeg.web")
+@ComponentScan(basePackages = "jp.co.yamaha_motor.hdeg")
 @EntityScan(basePackages = "jp.co.yamaha_motor.hdeg.common.entity")
 // @EnableJpaRepositories(basePackages = "jp.co.yamaha_motor.hdeg.common",
 // repositoryFactoryBeanClass = JpaExtensionRepositoryFactoryBean.class)

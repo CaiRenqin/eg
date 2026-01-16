@@ -14,6 +14,8 @@ import jp.co.yamaha_motor.hdeg.hdeg.hdegz13.service.HDEGZ13Service;
 public class HDEGZ13Facade {
     private final HDEGZ13Service hdegz13Service;
 
+    private String numberingId;
+
     /**
      * 採番処理
      *
@@ -23,7 +25,13 @@ public class HDEGZ13Facade {
     public HDEGZ13ResultDTO updateSheetNumbering(
             @ModelAttribute HDEGZ13RequestDTO request) {
         String tableName = request.getScreenModel().getTableName();
-        String numberingId = hdegz13Service.updateNumberingBySave(tableName);
+
+        if (tableName == null || tableName.isEmpty()) {
+            numberingId = "";
+        } else {
+            numberingId = hdegz13Service.updateNumberingAndSave(tableName);
+        }
+
         return new HDEGZ13ResultDTO(numberingId);
     }
 }

@@ -1,6 +1,7 @@
 package jp.co.yamaha_motor.hdeg.hdeg.hdegz12.service;
 
 import lombok.RequiredArgsConstructor;
+
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -23,7 +24,8 @@ public class HDEGZ12Service {
      * @return 最新バージョンのDTO
      */
     public HDEGZ12ResultDTO getLatestVersion() {
-        VersionEntity entity = versionRepository.findFirstByOrderByLastUpdatedDesc();
+        VersionEntity entity = versionRepository.getVersionInfo()
+                .orElse(new VersionEntity());
         return convertEntityToDTO(entity);
     }
 
@@ -36,13 +38,19 @@ public class HDEGZ12Service {
     private HDEGZ12ResultDTO convertEntityToDTO(VersionEntity entity) {
         HDEGZ12ResultDTO dto = new HDEGZ12ResultDTO();
 
+        if (entity.getVersionId() == null) {
+            return dto;
+        }
+
         dto.setMajorVer(entity.getVersionId().getMajorVer());
         dto.setMinorVer(entity.getVersionId().getMinorVer());
         dto.setReleaseVer(entity.getVersionId().getReleaseVer());
 
-        String formatted = entity.getLastUpdated().format(
-                DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.S"));
-        dto.setUpdateDate(new HDEGZ12ResultDTO.SqlTimestamp(formatted));
+        if (entity.getLastUpdated() != null) {
+            String formatted = entity.getLastUpdated().format(
+                    DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.S"));
+            dto.setUpdateDate(new HDEGZ12ResultDTO.SqlTimestamp(formatted));
+        }
 
         return dto;
     }

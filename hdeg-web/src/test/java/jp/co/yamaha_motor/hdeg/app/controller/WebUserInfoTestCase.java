@@ -1,4 +1,4 @@
-package jp.co.yamaha_motor.hdeg.web.app.controller;
+package jp.co.yamaha_motor.hdeg.app.controller;
 
 import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.user;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;

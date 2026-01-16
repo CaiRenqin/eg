@@ -1,4 +1,4 @@
-package jp.co.yamaha_motor.hdeg.web.test;
+package jp.co.yamaha_motor.hdeg.test;
 
 import org.springframework.boot.autoconfigure.security.SecurityProperties;
 import org.springframework.context.annotation.Bean;
@@ -16,7 +16,8 @@ public class TestSecurityConfiguration {
     @Profile("development-test")
     @Order(SecurityProperties.BASIC_AUTH_ORDER + 2)
     public SecurityFilterChain defaultSecurityFilterChain(HttpSecurity http) throws Exception {
-        http.securityMatcher("/test", "/user/changeLocale").authorizeHttpRequests(authz -> authz.anyRequest().permitAll());
+        http.securityMatcher("/test", "/user/changeLocale")
+                .authorizeHttpRequests(authz -> authz.anyRequest().permitAll());
         http.csrf(AbstractHttpConfigurer::disable);
         return http.build();
     }

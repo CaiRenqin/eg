@@ -1,7 +1,6 @@
 package jp.co.yamaha_motor.hdeg.hdeg.hdegz13.service;
 
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import jp.co.yamaha_motor.hdeg.common.entity.NumberingEntity;
 import jp.co.yamaha_motor.hdeg.common.repository.NumberingRepository;
@@ -44,9 +43,11 @@ public class HDEGZ13Service {
      * @param tableName テーブル名
      * @return 更新後の番号
      */
-    @Transactional
-    public String updateNumberingBySave(String tableName) {
+    public String updateNumberingAndSave(String tableName) {
         NumberingEntity numbering = numberingRepository.findByTableName(tableName);
+        if (numbering == null) {
+            return "";
+        }
         String fullNum = fillZero(numbering.getNum(), TABLE_NAME_MAP.get(tableName));
 
         numbering.setNum(numbering.getNum() + 1);

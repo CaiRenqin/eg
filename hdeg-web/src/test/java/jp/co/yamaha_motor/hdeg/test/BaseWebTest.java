@@ -1,4 +1,4 @@
-package jp.co.yamaha_motor.hdeg.web.test;
+package jp.co.yamaha_motor.hdeg.test;
 
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
