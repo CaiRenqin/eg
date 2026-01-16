@@ -3,9 +3,11 @@ package jp.co.yamaha_motor.hdeg.hdeg.hdegz12.dto;
 import lombok.Data;
 
 import jakarta.xml.bind.annotation.XmlAttribute;
+import jakarta.xml.bind.annotation.XmlType;
 import jakarta.xml.bind.annotation.XmlValue;
 
 @Data
+@XmlType(propOrder = { "majorVer", "minorVer", "releaseVer", "updateDate" })
 public class HDEGZ12ResultDTO {
     private String majorVer;
     private String minorVer;

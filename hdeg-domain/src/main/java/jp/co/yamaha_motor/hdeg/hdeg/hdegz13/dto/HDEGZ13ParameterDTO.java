@@ -7,7 +7,7 @@ import lombok.AllArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class HDEGZ13RequestDTO {
+public class HDEGZ13ParameterDTO {
     private ScreenModel screenModel;
 
     @Data
